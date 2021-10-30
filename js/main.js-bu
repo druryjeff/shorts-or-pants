@@ -1,0 +1,104 @@
+/* -----------------------------------------------
+   Function for retrieving the main weather info
+   ----------------------------------------------- */
+
+// enter the lat/long for your desired location
+// convert your city to lat/long using https://www.latlong.net/
+var latlong = '41.740681,-71.308609';
+
+// unique API key
+var apikey = 'c62e72d0f0cd19b5ef7f51b537e5ea5f';
+
+// access the DarkSky API for weather data
+$.getJSON('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/'+apikey+'/' + latlong)
+
+// display the weather content once it is loaded, not before
+.done(function(forecast) {
+	// header section covers over main weather info
+	// it is animated away when data is ready
+	// adding the class below triggers the animation
+	$('header p').html('<a href="#">Click</a>');
+	$('header a').click(function(){
+		$('header').addClass('anim');
+	})
+	displayData(forecast);
+})
+
+// print the data object feturned from DarkSky for all the details
+.always(function(forecast) {
+	console.log(forecast);
+});
+
+
+/* -----------------------------------------------
+   Function for displaying the main weather info
+   ----------------------------------------------- */
+
+// All of the data comes from the "forecast" object returned
+// from the DarkSky API. Inspect this page in the browser
+// for a full list of data that can be used using the methods below.
+
+function displayData(forecast){
+
+	var oneHigh = Math.round(forecast.daily.data[0].temperatureHigh);
+
+	$('.one h4').text(displayDay(0));
+	$('.one p').text(oneHigh);
+	$('.one').addClass('icon ' + forecast.daily.data[0].icon);
+	$('.one').addClass('icon ' + forecast.daily.data[0].icon);
+	$('.one').find('div').find('p').text(forecast.daily.data[0].summary);
+
+	$('.two h4').text(displayDay(1));
+	$('.two p').text(
+		Math.round(forecast.daily.data[1].temperatureHigh)
+	);
+	$('.two').addClass('icon ' + forecast.daily.data[1].icon);
+
+	$('.three h4').text(displayDay(2));
+	$('.three p').text(
+		Math.round(forecast.daily.data[2].temperatureHigh)
+	);
+	$('.three').addClass('icon ' + forecast.daily.data[2].icon);
+
+	$('.four h4').text(displayDay(3));
+	$('.four p').text(
+		Math.round(forecast.daily.data[3].temperatureHigh)
+	);
+	$('.four').addClass('icon ' + forecast.daily.data[3].icon);
+
+}
+
+
+/* -----------------------------------------------
+   Function for creating day of the week
+   ----------------------------------------------- */
+
+// based on a system where 0 = today, 1 = tomorrow, etc.
+// note: the number system below does not immediately correlate
+// for example, 0 for today does not line up with 0 for Sunday below
+// how this works – in the return statement, d.getDay() gets today's date
+// as a number (if today is Thursday, d.getDay() will be 4)
+// adding "n" to this number gives you how many days from today.
+// n is passed as an argument to the displayDay() function
+// in the main body of the code above.
+// if today is Thursday, the 4th day of the week,
+// and the number 2 is passed as an argument, 
+// the function will return the number 6. 6 maps to Saturday in the 
+// weekday array below.
+
+function displayDay(n){
+
+	var d = new Date();
+	var weekday = new Array();
+
+	weekday[0] = "S";
+	weekday[1] = "M";
+	weekday[2] = "T";
+	weekday[3] = "W";
+	weekday[4] = "Th";
+	weekday[5] = "F";
+	weekday[6] = "S";
+
+	return weekday[ d.getDay() + n ];
+
+}

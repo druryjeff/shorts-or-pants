@@ -1,0 +1,270 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+body {
+	color: #8dc63f;
+	font-family: 'Nunito', sans-serif;
+	font-size: 1.25rem;
+}
+header {
+	align-items: center;
+	background-color: #fff;
+	display: grid;
+	grid-template-rows: 4fr 1fr;
+	height: 100vh;
+	justify-items: center;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	transition: transform .4s;
+}
+header img {
+	height: 80%;
+}
+header a {
+	border: 2px solid #8dc63f;
+	border-radius: .25rem;
+	color: #8dc63f;
+	display: inline-block;
+	letter-spacing: 1px;
+	line-height: 2;
+	padding: 0 1rem;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.anim {
+	transform: translateY(-100%);
+}
+
+.icon {
+	background-position: 50% 50% !important;
+	background-repeat: no-repeat !important;
+}
+.clear-day {
+	background: url(../icons/Sun.svg);
+}
+.clear-night {
+	background: url(../icons/Moon.svg);
+}
+.rain {
+	background: url(../icons/Cloud-Rain.svg);
+}
+.snow {
+	background: url(../icons/Snowflake.svg);
+}
+.sleet {
+	background: url(../icons/Cloud-Hale.svg);
+}
+.wind {
+	background: url(../icons/Cloud-Wind.svg);
+}
+.fog {
+	background: url(../icons/Cloud-Fog.svg);
+}
+.cloudy {
+	background: url(../icons/Cloud.svg);
+}
+.partly-cloudy-day {
+	background: url(../icons/Cloud.svg);
+}
+.partly-cloudy-night {
+	background: url(../icons/Cloud.svg);
+}
+.hail {
+	background: url(../icons/Cloud-Hail.svg);
+}
+.thunderstorm {
+	background: url(../icons/Cloud-Lightening.svg);
+}
+.tornado {
+	background: url(../icons/Tornado.svg);
+}
+main {
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 35vh calc(20vh - 1rem) calc(20vh - 1rem) calc(20vh - 1rem);
+	height: 100vh;
+	padding: 1rem;
+}
+@media screen and (min-width: 40em){
+	main {
+		grid-template-columns: repeat(3,1fr);
+		grid-template-rows: 50vh calc(22vh - 1rem) calc(22vh - 1rem);
+	}
+}
+.day {
+	background-color: #f7f7f7;
+	display: grid;
+	font-size: 2rem;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	padding: 1rem;
+}
+.day h4 {
+	align-self: start;
+	color: #ccc;
+	font-size: 1rem;
+	grid-column: 1;
+	grid-row: 1;
+	justify-self: start;
+	text-transform: uppercase;
+}
+.day img {
+	align-self: center;
+	grid-column: 1;
+	grid-row: 1;
+	height: 12vh;
+	justify-self: center;
+}
+
+.day p {
+	align-self: start;
+	background-color: #7cbf31;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 1rem;
+	grid-column: 1;
+	grid-row: 1;
+	height: 2.25rem;
+	justify-self: end;
+	line-height: 2.25rem;
+	margin: 0;
+	text-align: center;
+	width: 2.25rem;
+}
+.one {
+	font-size: 4rem;
+	grid-column: 1 / span 2;
+	grid-row: 1;
+}
+@media screen and (min-width: 40em){
+	.one {
+		grid-column: 1 / span 3;
+	}
+}
+.one img {
+	height: 28vh;
+}
+@media screen and (min-width: 40em){
+	.day img {
+		height: 15vh;
+	}
+	.one img {
+		height: 36vh;
+	}
+}
+.one p {
+	background-color: #7cbf31;
+	border-radius: 50%;
+	font-size: 2rem;
+	height: 4rem;
+	line-height: 4rem;
+	text-align: center;
+	width: 4rem;
+}
+.two {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.three {
+	grid-column: 2;
+	grid-row: 2;
+}
+.four {
+	grid-column: 1;
+	grid-row: 3;
+}
+.five {
+	grid-column: 2;
+	grid-row: 3;
+}
+.six {
+	grid-column: 1;
+	grid-row: 4;
+}
+.seven {
+	grid-column: 2;
+	grid-row: 4;
+}
+@media screen and (min-width: 40em){
+	.two {
+		grid-column: 1;
+		grid-row: 2;
+	}
+	.three {
+		grid-column: 2;
+		grid-row: 2;
+	}
+	.four {
+		grid-column: 3;
+		grid-row: 2;
+	}
+	.five {
+		grid-column: 1;
+		grid-row: 3;
+	}
+	.six {
+		grid-column: 2;
+		grid-row: 3;
+	}
+	.seven {
+		grid-column: 3;
+		grid-row: 3;
+	}
+}
+
+aside {
+	background-color: #8dc63f;
+	color: #fff;
+	height: 100vh;
+	left: 0;
+	padding: 1rem;
+	position: fixed;
+	top: -100%;
+	width: 100%;
+	z-index: 1;
+}
+.trigger {
+	color: #999;
+	position: fixed;
+	right: 2rem;
+	top: 2rem;
+}
+.trigger img {
+	height: 1rem;
+}
+.trigger img:hover {
+	cursor: pointer;
+}
+.animasideopen {
+	animation-duration: .4s;
+	animation-fill-mode: forwards;
+	animation-name: infoOpen;
+}
+.animasideclose {
+	animation-duration: .4s;
+	animation-fill-mode: forwards;
+	animation-name: infoClose;
+}
+@keyframes infoopen {
+	0% {
+		top: -100%;
+	}
+	100% {
+		top: 0;
+	}
+}
+@keyframes infoclose {
+	0% {
+		top: 0;
+	}
+	100% {
+		top: -100%;
+	}
+}
