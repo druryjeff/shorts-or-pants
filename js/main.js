@@ -54,9 +54,9 @@ function drawWeather( d ) {
 
 function checkTemp(n,e){
 	if(n > 32){
-		e.append('<img src="img/th-up.svg">');
+		e.append('<img src="img/th-up.svg" alt="Thumb icon created by Piero Borgo from the Noun Project">');
 	} else {
-		e.append('<img src="img/th-down.svg">');		
+		e.append('<img src="img/th-down.svg" alt="Thumb icon created by Piero Borgo from the Noun Project">');		
 	}
 }
 
